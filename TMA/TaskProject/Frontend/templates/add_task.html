@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<center><table style="border: 2px solid red; padding: 10 px; ">
+
+    <h1> Enter the Details </h1>
+
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ add_form }}
+    </table>
+        <input type="submit" value="Add The Task " id="submit">
+    </form>
+</center>
+{% endblock %}

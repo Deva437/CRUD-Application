@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+<center><h1>Task Tables</h1></center>
+<form action=" {% url 'filter' %}">
+    <label for="">Filter</label>
+    <select name="priority" id="">
+        <option value="">All</option>
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+
+    </select>
+    <button type="submit">Filter</button>
+</form>
+
+
+    <center><div class="border"><table>
+    <thead>
+        <tr>
+            <th>Task Name</th>
+            <th>Description</th>
+            <th>Priority</th>
+            <th>Status</th>
+            <th>Image</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for allview in view_task %}
+        <tr>
+            <td>{{allview.task_title}}</td>
+            <td>{{allview.task_description}}</td>
+            <td>{{allview.task_priority }}</td>
+            <td>{{allview.task_status}}</td>
+            <td>{% if allview.task_image %}
+                    <img src="{{allview.task_image.url}}" alt="image">
+                {% else %}
+                    <p>Image not fount</p>
+                {% endif %}
+            </td>
+
+       
+
+        <td>
+            <a  href="{% url 'task_update' allview.id %}" onclick="return confirm('Are you sure Edit Data');">
+                <button id="update" >Update</button>
+            </a>
+            <td>
+                <a  href="{% url 'task_delete' allview.id %}" onclick="return confirm('Are you sure Delete Value');">
+                    <button id="delete">Delete</button>
+                </a>
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+        
+    </tbody>
+</table></div></center>
+{% endblock %}

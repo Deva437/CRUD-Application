@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+    <style>
+        img{
+            width: 200px;
+            height: 160px;
+        }
+        
+        table, th, td {
+            border: 2px solid brown;
+            padding: 15px;
+        }
+
+        #update:hover{
+            background-color:green;
+
+        }
+        #delete:hover{
+            background-color:red;
+
+        }
+        
+        
+        #submit:hover{
+            background-color: green;
+            
+        }
+
+    </style>
+    </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    {% block content %}
+
+    {% endblock %}
+    
+</body>
+</html>
